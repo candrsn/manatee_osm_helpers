@@ -1,0 +1,12 @@
+#parcels
+https://www.mymanatee.org/arcgis02/rest/services/agol/opendata/MapServer/0/query?outFields=*&where=1%3D1
+
+#address Points
+https://www.mymanatee.org/arcgis02/rest/services/agol/opendata/FeatureServer/9/query?outFields=*&where=1%3D1
+
+#buildings
+https://www.mymanatee.org/arcgis02/rest/services/agol/opendata/FeatureServer/5/query?outFields=*&where=1%3D1
+
+#custom map for OSM id
+http://0.0.0.0:8080/wmts/2017CIR/webmercator/{zoom}/{x}/{y}.png
+

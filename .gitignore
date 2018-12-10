@@ -1,0 +1,7 @@
+*.pyo
+*.pyc
+*.pbf
+*.sqlite
+*.zip
+*.swp
+*~

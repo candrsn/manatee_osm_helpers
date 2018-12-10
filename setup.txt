@@ -1,0 +1,17 @@
+mapproxy-util create -t base-config ./
+
+cp -p mapproxy.yaml manatee.yaml
+
+mapproxy-util serve-develop ./manatee.yaml
+
+mapproxy-util wms-capabilities https://www.mymanatee.org/lizardtech/iserv/ows?REQUEST=GetCapabilities > manatee_layers.yaml
+
+mapproxy-util autoconfig \
+    --capabilities https://www.mymanatee.org/lizardtech/iserv/ows? \
+    --output manatee_raw.yaml \
+    --output-seed manatee_seed.yaml \
+    --force
+
+cat manatee_raw.yaml | sed -e 's/services:/services:\n  demo:\n  tms:\n    use_grid_names: true\n    # origin for \/tiles service\n    origin: "manatee"\n  kml:\n    use_grid_names: true/' -e 's/ wms:/ wmts:\n  wms:/' > manatee.yaml
+
+
